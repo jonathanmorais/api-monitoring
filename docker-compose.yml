@@ -1,0 +1,10 @@
+version: '2'
+services:
+  api:
+    container_name: api-monitoring
+    build:
+      context: ./api
+    network_mode: "host"
+    restart: always
+    volumes:
+      - ./csv:/csv
