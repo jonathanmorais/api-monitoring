@@ -1,13 +1,23 @@
-image: python:3.6
+stages
+  - build
+  - test
 
-test:pylint:
+build
+  stage: build
+  script:
+    - echo "build Docker Image"
+    - docker build . -t 1.0
+test      
+  test:pylint:
+      image: python:3.6
+      script:
+          - echo "Pylint test"    
+          - pip install pylint --quiet
+          - pylint --ignored-classes=_socketobject *.py
+
+  test:pytest: 
     image: python:3.6
     script:
-        - pip install pylint --quiet
-        - pylint --ignored-classes=_socketobject *.py
-
-test:pytest:
-  image: python:3.6
-  script:
-    - pip install pytest --quiet
-    - pytest          
+      - echo "Pytest"       
+      - pip install pytest --quiet
+      - pytest          
