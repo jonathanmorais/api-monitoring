@@ -14,7 +14,6 @@ test
           - echo "Pylint test"    
           - pip install pylint --quiet
           - pylint --ignored-classes=_socketobject *.py
-
   test:pytest: 
     image: python:3.6
     script:
