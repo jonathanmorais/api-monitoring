@@ -10,4 +10,4 @@ COPY . .
 
 RUN pip install -r requirements.txt
 
-CMD [ "python", "-u", "./request.py" ]s
+CMD [ "python", "-u", "./request.py" ]
