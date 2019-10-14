@@ -2,12 +2,11 @@ stages
   - build
   - test
 
-job1:
-  stage: build
+stage: build
   script:
     - echo "build Docker Image"
     - docker build . -t 1.0
-job2:     
+stage: tes    
   test:pylint:
       image: python:3.6
       script:
